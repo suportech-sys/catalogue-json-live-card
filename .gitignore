@@ -1,0 +1,30 @@
+# Ignorar arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# Ignorar arquivos de cache do navegador e armazenamento local
+*.cache
+*.log
+
+# Ignorar arquivos específicos de IDEs ou editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar arquivos de sistema macOS
+.DS_Store
+
+# Ignorar arquivos sensíveis ou específicos do ambiente
+.env
+*.env
+
+# Ignorar diretórios de build ou saída
+dist/
+build/
+node_modules/
+
+# Permitir arquivos específicos do projeto
+!index.html
+!guia.html
