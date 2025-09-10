@@ -1,5 +1,5 @@
- # Catálogo de Toners SuporTech
-
+ # Catálogo de Objetos formato HTMLK e JSON 
+ 
 ## Visão Geral
 O Catálogo de Toners SuporTech é uma aplicação web desenvolvida para gerenciar e exibir um catálogo de toners para impressoras. Ele permite visualizar detalhes dos toners (como código, marca, modelo, impressoras compatíveis e preço) e atualizar o catálogo por meio de uma interface JSON. Este projeto foi criado pela SuporTech, uma empresa de soluções em tecnologia e suporte técnico localizada em Franca, São Paulo.
 
