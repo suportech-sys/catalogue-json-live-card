@@ -1,0 +1,32 @@
+# Ativa o motor de reescrita de URLs
+RewriteEngine On
+
+# 1. Redirecionamento de HTTP para HTTPS (força SSL)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 2. Redirecionamento de WWW para sem WWW (principal)
+RewriteCond %{HTTP_HOST} ^www\.suportech\.com\.br [NC]
+RewriteRule ^(.*)$ https://suportech.com.br/$1 [L,R=301]
+
+# 3. Redirecionar apenas a raiz (suportech.com.br/) para suportech.pages.pro.br/suportech
+RewriteCond %{HTTP_HOST} ^(www\.)?suportech\.com\.br$ [NC]
+RewriteCond %{REQUEST_URI} ^/?$ [NC]
+RewriteRule ^(.*)$ https://suportech.pages.pro.br/suportech [L,R=301]
+
+# 4. Regra de URL amigável
+RewriteRule ^produto/([0-9]+)$ /produto.php?id=$1 [L,QSA]
+
+# 5. Proibição de acesso a arquivos sensíveis
+<FilesMatch "\.(htaccess|htpasswd|log|bak|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# 6. Cache de arquivos estáticos
+<FilesMatch "\.(jpg|jpeg|png|gif|js|css|ico|pdf|svg)$">
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Desabilita a listagem de diretórios
+Options -Indexes

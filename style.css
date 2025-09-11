@@ -1,0 +1,437 @@
+```css
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #003087;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+header img {
+    max-width: 100px;
+    height: auto;
+}
+
+header h1 {
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #003087;
+    text-align: center;
+}
+
+h2, h3 {
+    color: #004aad;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+code {
+    background-color: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.note {
+    background-color: #e7f3ff;
+    padding: 10px;
+    border-left: 4px solid #0066cc;
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #004aad;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #e7f3ff;
+}
+
+footer {
+    background-color: #003087;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #e7f3ff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background: #eee;
+    text-align: left;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0078d4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #005b9e;
+}
+
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+    header, nav, footer, #loginSection {
+        display: none;
+    }
+    a {
+        color: #000;
+        background: none;
+        padding: 0;
+        text-decoration: underline;
+    }
+    .container {
+        box-shadow: none;
+        margin: 0;
+    }
+    .btn {
+        display: none;
+    }
+}
+
+#datetime {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.export-buttons {
+    margin-bottom: 20px;
+}
+
+.task-details {
+    margin-top: 20px;
+}
+
+.subtask-form {
+    margin-top: 10px;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+.subtasks-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.subtasks-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.subtasks-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#loginSection {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#eventLogSection {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+#eventLogSection ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#eventLogSection li {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+}
+```
+
+### Guia HTML Atualizado (`guia.html`)
+Abaixo está o `guia.html` atualizado, agora referenciando o `style.css` externo e incluindo instruções completas para usar a tela de tarefas.
+
+<xaiArtifact artifact_id="3598037b-a447-47e6-84b1-84513408df76" artifact_version_id="18699418-4291-403c-96e1-5b01ad750395" title="guia.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Uso - Catálogo de Tarefas SuporTech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="SuporTech Logo">
+        <h1>Guia de Uso - Catálogo de Tarefas SuporTech</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Voltar ao Catálogo de Tarefas</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Como Utilizar o Catálogo de Tarefas SuporTech</h2>
+        <p>Este guia explica como usar o sistema de gerenciamento de tarefas da SuporTech. Siga os passos abaixo para acessar, cadastrar, gerenciar e exportar tarefas, além de visualizar logs e gráficos.</p>
+
+        <div class="section">
+            <h3>1. Acessando o Sistema (Login)</h3>
+            <ol>
+                <li>Ao abrir o sistema, você verá a tela de login.</li>
+                <li>Insira o <strong>usuário</strong> (<code>admin</code>) e a <strong>senha</strong> (<code>suportech123</code>) nos campos correspondentes.</li>
+                <li>Clique no botão <strong>Entrar</strong>.</li>
+                <li>Se as credenciais estiverem corretas, você será levado à tela principal. Caso contrário, uma mensagem de erro será exibida, e a tentativa será registrada no log.</li>
+            </ol>
+            <div class="note">
+                <strong>Nota:</strong> O login é necessário para acessar as funcionalidades do sistema. Contate o suporte em <a href="mailto:suporte@suportech.com">suporte@suportech.com</a> se precisar de assistência.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2. Saindo do Sistema (Logout)</h3>
+            <ol>
+                <li>Na barra de navegação, clique em <strong>Sair</strong>.</li>
+                <li>Você será redirecionado à tela de login, e o logout será registrado no log de eventos.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>3. Cadastrando uma Tarefa</h3>
+            <ol>
+                <li>Na seção <strong>Cadastro de Tarefas/Ideias</strong>, preencha os campos:
+                    <ul>
+                        <li><strong>Nome do Projeto</strong>: Nome do projeto relacionado.</li>
+                        <li><strong>Nome do Produto</strong>: Produto associado à tarefa.</li>
+                        <li><strong>Título da Tarefa/Ideia</strong>: Um título descritivo.</li>
+                        <li><strong>Descrição</strong>: Detalhes da tarefa (opcional).</li>
+                        <li><strong>Data de Início</strong>: Data de início da tarefa.</li>
+                        <li><strong>Data Prevista</strong>: Data de conclusão prevista.</li>
+                        <li><strong>Responsável</strong>: Nome ou e-mail do responsável.</li>
+                        <li><strong>Porcentagem de Conclusão</strong>: Valor inicial entre 0 e 100 (atualizado automaticamente com subtarefas).</li>
+                    </ul>
+                </li>
+                <li>Clique em <strong>Cadastrar Tarefa</strong>.</li>
+                <li>A tarefa aparecerá na tabela <strong>Tarefas Cadastradas</strong>, e a ação será registrada no log.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>4. Adicionando e Gerenciando Subtarefas</h3>
+            <ol>
+                <li>Na tabela <strong>Tarefas Cadastradas</strong>, clique em <strong>Adicionar Subtarefa</strong> na coluna <strong>Ações</strong> da tarefa desejada.</li>
+                <li>Preencha:
+                    <ul>
+                        <li><strong>Título da Subtarefa</strong>: Descrição da subtarefa.</li>
+                        <li><strong>Concluída?</strong>: Marque se a subtarefa já está concluída.</li>
+                        <li><strong>Data de Conclusão</strong>: Insira a data se marcada como concluída (opcional).</li>
+                    </ul>
+                </li>
+                <li>Clique em <strong>Adicionar Subtarefa</strong>.</li>
+                <li>As subtarefas aparecerão na coluna <strong>Subtarefas</strong> da tabela, com checkboxes.</li>
+                <li>Marque/desmarque os checkboxes para atualizar o status da subtarefa (concluída/pendente). A <strong>% Conclusão</strong> da tarefa será atualizada automaticamente com base nas subtarefas concluídas.</li>
+                <li>Cada ação (adicionar ou atualizar subtarefa) é registrada no log de eventos.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>5. Visualizando o Gráfico Burndown</h3>
+            <ol>
+                <li>Na tabela <strong>Tarefas Cadastradas</strong>, clique em <strong>Burndown</strong> na coluna <strong>Ações</strong> de uma tarefa com subtarefas.</li>
+                <li>O gráfico mostrará:
+                    <ul>
+                        <li><strong>Linha Ideal</strong> (azul): Progresso esperado de subtarefas concluídas.</li>
+                        <li><strong>Linha Atual</strong> (vermelha): Progresso real com base nas datas de conclusão das subtarefas.</li>
+                    </ul>
+                </li>
+                <li>Se a tarefa não tiver subtarefas, uma mensagem solicitará que você adicione subtarefas primeiro.</li>
+            </ol>
+            <div class="note">
+                <strong>Nota:</strong> O gráfico usa as datas de início e prevista da tarefa, além das datas de conclusão das subtarefas, para calcular o progresso.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>6. Exportando Dados</h3>
+            <ol>
+                <li>Na seção de botões, clique em:
+                    <ul>
+                        <li><strong>Exportar PDF</strong>: Gera um arquivo PDF com todas as tarefas e subtarefas.</li>
+                        <li><strong>Exportar Excel</strong>: Gera uma planilha XLSX com as tarefas e subtarefas.</li>
+                        <li><strong>Exportar JSON</strong>: Gera um arquivo JSON com os dados das tarefas.</li>
+                        <li><strong>Exportar Log</strong>: Gera um arquivo JSON com o log de eventos.</li>
+                    </ul>
+                </li>
+                <li>Os arquivos serão baixados automaticamente, e cada exportação será registrada no log.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>7. Integrando com Calendários</h3>
+            <ol>
+                <li>Na tabela <strong>Tarefas Cadastradas</strong>, na coluna <strong>Ações</strong>, clique em:
+                    <ul>
+                        <li><strong>Google Calendar</strong>: Abre o Google Calendar em uma nova aba com os dados da tarefa preenchidos.</li>
+                        <li><strong>MS Calendar</strong>: Abre o Microsoft Calendar em uma nova aba com os dados da tarefa preenchidos.</li>
+                    </ul>
+                </li>
+                <li>Confirme os detalhes no calendário e salve o evento.</li>
+                <li>Cada integração será registrada no log de eventos.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>8. Visualizando o Log de Eventos</h3>
+            <ol>
+                <li>Na seção <strong>Log de Eventos</strong>, você verá as últimas 10 ações realizadas no sistema, incluindo login, logout, cadastros, atualizações e exportações.</li>
+                <li>Cada entrada mostra:
+                    <ul>
+                        <li><strong>Timestamp</strong>: Data e hora da ação (ex.: <code>06/09/2025 18:29:00</code>).</li>
+                        <li><strong>Usuário</strong>: Nome do usuário logado (ex.: <code>admin</code>) ou <code>Anônimo</code> para tentativas de login falhas.</li>
+                        <li><strong>Ação</strong>: Descrição da ação realizada (ex.: <code>Cadastrada nova tarefa ID 1</code>).</li>
+                    </ul>
+                </li>
+                <li>Para exportar o log, clique em <strong>Exportar Log</strong> na seção de botões.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>9. Informações de Data, Hora, IP e Localização</h3>
+            <ol>
+                <li>No topo da tela principal, você verá:
+                    <ul>
+                        <li><strong>Data e Hora Local</strong>: Atualizada a cada minuto.</li>
+                        <li><strong>IP</strong>: Endereço IP do dispositivo (se disponível).</li>
+                        <li><strong>Localização</strong>: Coordenadas geográficas (latitude e longitude) se o navegador permitir.</li>
+                    </ul>
+                </li>
+                <li>Essas informações são exibidas em letras pequenas e não são armazenadas.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>10. Dicas Adicionais</h3>
+            <ul>
+                <li>Certifique-se de que o arquivo <code>logo.png</code> está na mesma pasta do sistema para que o logotipo apareça corretamente.</li>
+                <li>Os dados das tarefas e logs são salvos no <strong>localStorage</strong> do navegador. Limpar o cache do navegador apagará esses dados.</li>
+                <li>Para suporte, contate <a href="mailto:suporte@suportech.com">suporte@suportech.com</a> ou ligue para (XX) XXXX-XXXX.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        SuporTech - Soluções em Tecnologia e Suporte Técnico<br>
+        Contato: <a href="mailto:suporte@suportech.com">suporte@suportech.com</a> | Telefone: (XX) XXXX-XXXX | Endereço: Rua Exemplo, 123 - Cidade, Estado<br>
+        © 2025 SuporTech. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

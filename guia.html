@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Uso - Catálogo de Toners</title>
+   <link rel="stylesheet" href="style.css"0>
+	  <header>
+        <img src="logo.png" alt="SuporTech Logo">
+        <h1>Guia de Uso - Catálogo de Toners</h1>
+    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1a237e;
+            text-align: center;
+        }
+        h2 {
+            color: #3949ab;
+            border-bottom: 2px solid #e8eaf6;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #1a237e;
+        }
+        code {
+            background-color: #e8eaf6;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #e8eaf6;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .highlight {
+            background-color: #fff9c4;
+            padding: 15px;
+            border-left: 5px solid #ffeb3b;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guia de Uso - Catálogo de Toners</h1>
+        <p>Este guia rápido irá te ajudar a entender como gerenciar e atualizar o catálogo de toners de forma eficiente.</p>
+        
+        <h2>1. Acessando o Catálogo</h2>
+        <p>Acesse o arquivo <code>index.html</code> no seu navegador. O catálogo de toners será exibido na página principal. Abaixo da lista de produtos, você encontrará uma caixa de texto com o código JSON do catálogo.</p>
+
+        <h2>2. Entendendo o Formato JSON</h2>
+        <p>O catálogo é um arquivo JSON, que organiza os dados em uma lista de objetos. Cada <strong>objeto</strong>, delimitado por chaves <code>{ }</code>, representa um único produto e contém os seguintes campos:</p>
+        
+        <ul>
+            <li><code>"cod"</code>: Código do produto (ex: "1469")</li>
+            <li><code>"marca"</code>: Marca do toner (ex: "HP")</li>
+            <li><code>"modelo"</code>: Modelo do toner (ex: "85A")</li>
+            <li><code>"paginas"</code>: Rendimento em número de páginas (ex: "1600")</li>
+            <li><code>"impressora"</code>: Modelos de impressoras compatíveis, separados por <code>|</code> (ex: "P1102W| M1132")</li>
+            <li><code>"valor"</code>: Valor de venda (ex: "60,00")</li>
+            <li><code>"custo"</code>: Valor de custo (ex: "0,00")</li>
+            <li><code>"Fornecedor"</code>: Nome do fornecedor (ex: "xxxx")</li>
+            <li><code>"Ult.Compra"</code>: Data da última compra (ex: "dd/mm/aaaa")</li>
+            <li><code>"imagem"</code>: URL da imagem do produto</li>
+        </ul>
+
+        <h2>3. Adicionando, Removendo e Editando Produtos</h2>
+        <p>Use a caixa de texto para fazer as atualizações. Siga estas instruções para atualizar seu catálogo:</p>
+        
+        <ul>
+            <li><strong>Para Adicionar um Produto:</strong> Copie um bloco de produto completo (do <code>{</code> ao <code>}</code>). Cole-o no final da lista, antes do último <code>]</code>. Lembre-se de adicionar uma vírgula (<code>,</code>) após o bloco anterior para separar os itens.</li>
+            <li><strong>Para Remover um Produto:</strong> Simplesmente apague o bloco de produto (<code>{}</code>) que você não quer mais. Se o item removido não for o último da lista, certifique-se de que não haja duas vírgulas seguidas.</li>
+            <li><strong>Para Editar um Produto:</strong> Mude o texto entre as aspas do campo que deseja alterar. Por exemplo, para mudar o preço, encontre a linha <code>"valor": "60,00"</code> e troque o valor. Não se esqueça de preencher os campos <code>"Fornecedor"</code> e <code>"Ult.Compra"</code>.</li>
+        </ul>
+
+        <h2>4. Atualizando o Catálogo</h2>
+        <p>Depois de fazer suas alterações na caixa de texto, clique no botão <strong>"Atualizar Catálogo"</strong>. A página será recarregada e o catálogo mostrará os produtos atualizados com as informações que você inseriu.</p>
+
+        <p class="highlight"><strong>Atenção:</strong> Sempre verifique se o formato do JSON está correto (as aspas e as vírgulas no lugar certo). Um pequeno erro pode fazer o catálogo não funcionar.</p>
+        
+        <p>Se tiver qualquer problema, você pode copiar o código original de volta para a caixa de texto e tentar novamente.</p>
+    </div>
+	
+    <footer>
+        <a href="https://suportech.com.br" target="_blank"</a>SuporTech - Soluções em Tecnologia e Suporte Técnico 	<br>
+        Contato: <a href="mailto:suporte@suportech.com">suporte@suportech.com</a> | Telefone: (16) 3722-2002 | <a href="https://maps.app.goo.gl/eogXFZHwVcPVWt2cA" target="_blank"> Endereço: Rua Antonio Rodrigues Netto, 862 - Franca - São Paulo<br>
+        © 2025 SuporTech. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>

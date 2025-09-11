@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Toners - SuporTech</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="SuporTech Logo">
+        <h1>Catálogo de Toners - SuporTech</h1>
+    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #1a237e;
+        }
+        .catalog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .toner-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .toner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .toner-card-image {
+            background-color: #f8f9fa;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+        }
+        .toner-card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .toner-card-content {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .toner-card-content h3 {
+            margin: 0 0 5px;
+            font-size: 1.3em;
+            color: #1a237e;
+        }
+        .toner-card-content p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .toner-card-content .compatibilidade {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 5px;
+            text-align: left;
+        }
+        .toner-card-content .compatibilidade ul {
+            padding-left: 20px;
+            margin: 5px 0 0;
+            list-style-type: disc;
+        }
+        .toner-card-content .compatibilidade li {
+            font-style: italic;
+        }
+        .toner-price {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            margin-top: auto;
+        }
+        .vantagens {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            text-align: left;
+        }
+        .vantagens p {
+            margin: 0;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .admin-panel {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .admin-panel label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .admin-panel textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+        }
+        .admin-panel button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            color: #fff;
+            background-color: #1a237e;
+            transition: background-color 0.3s;
+        }
+        .admin-panel button:hover {
+            background-color: #0d1246;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Catálogo de Toners</h1>
+
+        <div class="admin-panel">
+            <h2>Gerenciar Itens do Catálogo</h2>
+            <p>Edite o JSON abaixo para adicionar ou remover produtos. Após as alterações, clique em "Atualizar Catálogo".</p>
+            <textarea id="json-data">
+[
+    {
+        "cod": "1469",
+        "marca": "HP",
+        "modelo": "85A (USAR 35A/36A)",
+        "paginas": "1600",
+        "impressora": "P1102W| M1132| M1212",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_7Z8TGG7NBN9ERBGHBXRZGKFAVW/image.png"
+    },
+    {
+        "cod": "1495",
+        "marca": "HP",
+        "modelo": "35A/36A",
+        "paginas": "1600",
+        "impressora": "P1005|P1006|M1120|P1505|P1102W| M1132| M1212|P1606|M1536",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_6CK186S3J29DYRMH5GQE437MVR/image.png"
+    },
+    {
+        "cod": "1463",
+        "marca": "HP",
+        "modelo": "280A/505A",
+        "paginas": "2300",
+        "impressora": "P2035| P2055| M400",
+        "valor": "85,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_7QHKG3VZ9V8JQR7EGPS0Z3GJXS/image.png"
+    },
+    {
+        "cod": "1379",
+        "marca": "HP",
+        "modelo": "283A",
+        "paginas": "1600",
+        "impressora": "M125|M127|M201|M225",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_0R4Y57JAPE9PP962AHHEV4E847/image.png"
+    },
+    {
+        "cod": "1518",
+        "marca": "HP",
+        "modelo": "12A",
+        "paginas": "2000",
+        "impressora": "M1005|1010|1012|1018|1020|1022",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_5TAA0WKDBG83NVYRTWWZW95KQ5/image.png"
+    },
+    {
+        "cod": "1464",
+        "marca": "HP",
+        "modelo": "278A (USAR 35A/36A)",
+        "paginas": "1600",
+        "impressora": "P1606|M1536",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_5VHKY78H2Y9FW89QA4AEN667N/image.png"
+    },
+    {
+        "cod": "1465",
+        "marca": "HP",
+        "modelo": "90X/64X",
+        "paginas": "24000",
+        "impressora": "M600|M602|P4015|P4014|M4555",
+        "valor": "170,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_32T5WDB5P79J0XQCKG75F11V4T/image.png"
+    },
+    {
+        "cod": "1466",
+        "marca": "HP",
+        "modelo": "26A",
+        "paginas": "3100",
+        "impressora": "M402|M403|M426",
+        "valor": "120,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_31XUWH9D6D82J879E6K01M0C56/image.png"
+    },
+    {
+        "cod": "1467",
+        "marca": "HP",
+        "modelo": "49A",
+        "paginas": "2500",
+        "impressora": "1160|1320|3390|3392",
+        "valor": "70,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_7P48R7QDBK9K1K62C5G0A5QAXK/image.png"
+    },
+    {
+        "cod": "1468",
+        "marca": "HP",
+        "modelo": "55A",
+        "paginas": "6000",
+        "impressora": "M525|M521|M506",
+        "valor": "110,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_5N40RXXAEP8938V9R62H6Q0C74/image.png"
+    },
+    {
+        "cod": "1517",
+        "marca": "HP",
+        "modelo": "53A",
+        "paginas": "3000",
+        "impressora": "2015|2014|1320|M2727nf|P2015",
+        "valor": "75,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_6M01XQ0JBC9A7XGAKV1R5DEDW8/image.png"
+    },
+    {
+        "cod": "1519",
+        "marca": "HP",
+        "modelo": "80A",
+        "paginas": "2700",
+        "impressora": "M401|M425",
+        "valor": "100,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_7DXK8YW3GJ9D392ZF7JJTZ44GE/image.png"
+    },
+    {
+        "cod": "2554",
+        "marca": "HP",
+        "modelo": "W1105/105A",
+        "paginas": "1000",
+        "impressora": "107A|107W| MFP-135A| MFP-135W| MFP-137FNW",
+        "valor": "95,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_6M01XQ0JBC9A7XGAKV1R5DEDW8/image.png"
+    },
+    {
+        "cod": "1541",
+        "marca": "SAMSUNG",
+        "modelo": "D105",
+        "paginas": "1500",
+        "impressora": "1910|2525|SCX4600|SCX4623|SF650",
+        "valor": "70,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_19XHMJN4G78VQ9BKTHA5GQ62JH/image.png"
+    },
+    {
+        "cod": "1527",
+        "marca": "SAMSUNG",
+        "modelo": "D104",
+        "paginas": "1500",
+        "impressora": "1665|1865|SCX3200",
+        "valor": "70,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_45T82H8CJM9RKVXF4MDEG668HS/image.png"
+    },
+    {
+        "cod": "2053",
+        "marca": "SAMSUNG",
+        "modelo": "D101",
+        "paginas": "1500",
+        "impressora": "2165|2168|3400|3405",
+        "valor": "90,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_0GZTKD3N8B8C99T02YKGDPC96G/image.png"
+    },
+    {
+        "cod": "2054",
+        "marca": "SAMSUNG",
+        "modelo": "D203U",
+        "paginas": "15000",
+        "impressora": "3820|3870|4020|4070",
+        "valor": "200,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_65WA4QSD539SYVGA31RKJMDVX2/image.png"
+    },
+    {
+        "cod": "1916",
+        "marca": "SAMSUNG",
+        "modelo": "D204L",
+        "paginas": "5000",
+        "impressora": "M3325|3825|4025|3375|3875|4075",
+        "valor": "120,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_77DJFPTQCW9QGSPWAFTPS33ZKM/image.png"
+    },
+    {
+        "cod": "2055",
+        "marca": "SAMSUNG",
+        "modelo": "D204U",
+        "paginas": "15000",
+        "impressora": "3825|4025|3875|4075",
+        "valor": "200,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_0EBNA7FMWT9KBBQ973SMNXK32K/image.png"
+    },
+    {
+        "cod": "1713",
+        "marca": "SAMSUNG",
+        "modelo": "D111",
+        "paginas": "1000",
+        "impressora": "SL-M2020|M2070",
+        "valor": "100,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_0P762K6P0W9PR2V6C65G10B6AX/image.png"
+    },
+    {
+        "cod": "1727",
+        "marca": "BROTHER",
+        "modelo": "TN1060",
+        "paginas": "1000",
+        "impressora": "HL-1110|1112|1202|DCP-1510|1602|MFC-1810|1815|1900",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_29SWA4W9P89T834J6F169X170W/image.png"
+    },
+    {
+        "cod": "2057",
+        "marca": "BROTHER",
+        "modelo": "TN-650",
+        "paginas": "8000",
+        "impressora": "HL-5340D|5350DN|5370DW|MFC-8480DN|8890DW|DCP-8085DN",
+        "valor": "70,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_5Q95D31D78864X71Q42R10134Q/image.png"
+    },
+    {
+        "cod": "1729",
+        "marca": "BROTHER",
+        "modelo": "TN-450",
+        "paginas": "2600",
+        "impressora": "HL-2240|2270|DCP-7055|7065",
+        "valor": "60,00",
+        "custo": "0,00",
+        "Fornecedor": "xxxx",
+        "Ult.Compra": "dd/mm/aaaa",
+        "imagem": "https://images.sumup.com/img_417N84Y0T09H2S8WJ45Q7140H4/image.png"
+    }
+]
+            </textarea>
+		<button onclick="updateCatalog()">Atualizar Catálogo</button>
+        <button onclick="window.open('guia.html')">Ajuda</button>
+		<button onclick="window.open('https://suportech.sumupstore.com/produtos', '_blank')">Loja SuporTech</button>
+        </div>
+
+        <div id="catalog-items" class="catalog-container">
+            </div>
+    </div>
+	
+	
+        <!-- Log de Eventos em Tempo Real -->
+        <div id="eventLogSection" class="section">
+            <h3>Log de Eventos</h3>
+            <ul id="eventLogList"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://suportech.com.br" target="_blank"</a>SuporTech - Soluções em Tecnologia e Suporte Técnico 	<br>
+        Contato: <a href="mailto:suporte@suportech.com">suporte@suportech.com</a> | Telefone: (16) 3722-2002 | <a href="https://maps.app.goo.gl/eogXFZHwVcPVWt2cA" target="_blank"> Endereço: Rua Antonio Rodrigues Netto, 862 - Franca - São Paulo<br>
+        © 2025 SuporTech. Todos os direitos reservados.
+    </footer>	
+	
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCatalog();
+        });
+
+function updateCatalog() {
+    const jsonData = document.getElementById('json-data').value;
+    const catalogContainer = document.getElementById('catalog-items');
+    catalogContainer.innerHTML = '';
+
+    try {
+        const products = JSON.parse(jsonData);
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'toner-card';
+            
+            const impressorasList = product.impressora.split('|').map(item => `<li>${item.trim()}</li>`).join('');
+            
+            card.innerHTML = `
+                <div class="toner-card-image">
+                    <img src="${product.imagem}" alt="${product.marca} ${product.modelo}">
+                </div>
+                <div class="toner-card-content">
+                    <h3>${product.marca} ${product.modelo}</h3>
+                    <p><strong>Código:</strong> ${product.cod}</p>
+                    <p><strong>Custo:</strong> R$ ${product.custo}</p>
+                    <p><strong>Fornecedor:</strong> ${product.Fornecedor}</p>
+                    <p><strong>Última Compra:</strong> ${product['Ult.Compra']}</p>
+                    <div class="vantagens">
+                        <p>✅ Alto Rendimento: até ${product.paginas} páginas</p>
+                    </div>0
+                    <div class="compatibilidade">
+                        <p><strong>Compatível com impressoras:</strong></p>
+                        <ul>
+                            ${impressorasList}
+                        </ul>
+                    </div>
+                </div>
+                <div class="toner-price">
+                    R$ ${product.valor}
+                </div>
+            `;
+            catalogContainer.appendChild(card);
+        });
+
+        // Adiciona um evento de log aqui
+        logAction('Catálogo atualizado com sucesso.');
+
+    } catch (e) {
+        alert('Erro ao processar o JSON. Verifique a sintaxe.');
+        console.error(e);
+        
+        // Adiciona um evento de log em caso de erro
+        logAction('Erro ao atualizar o catálogo: ' + e.message);
+    }
+}
+    </script>
+	
+	
+   <script>
+        // Carregar tarefas e logs salvas no localStorage
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        let logs = JSON.parse(localStorage.getItem('logs')) || [];
+        let nextId = tasks.length ? Math.max(...tasks.map(t => t.id)) + 1 : 1;
+
+        // Função para registrar log
+        function logAction(action, username = 'Usuário') {
+            const now = new Date().toLocaleString('pt-BR');
+            logs.push({ timestamp: now, username: username, action: action });
+            localStorage.setItem('logs', JSON.stringify(logs));
+            updateEventLog();
+        }
+
+        // Atualizar log em tempo real
+        function updateEventLog() {
+            const logList = document.getElementById('eventLogList');
+            logList.innerHTML = '';
+            logs.slice(-10).forEach(log => {
+                const li = document.createElement('li');
+                li.textContent = `[${log.timestamp}] ${log.username}: ${log.action}`;
+                logList.appendChild(li);
+            });
+            logList.scrollTop = logList.scrollHeight;
+        }
+
+        // Exibir data, hora, IP e localização local
+        async function updateDateTime() {
+            const now = new Date();
+            let ip = 'Desconhecido';
+            let location = 'Desconhecida';
+
+            try {
+                const ipRes = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipRes.json();
+                ip = ipData.ip;
+            } catch (e) {
+                console.error('Erro ao obter IP:', e);
+            }
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        location = `Lat: ${pos.coords.latitude}, Lon: ${pos.coords.longitude}`;
+                        document.getElementById('datetime').innerText = `Data e Hora Local: ${now.toLocaleString('pt-BR')} | IP: ${ip} | Localização: ${location}`;
+                    },
+                    (err) => {
+                        console.error('Erro ao obter localização:', err);
+                        document.getElementById('datetime').innerText = `Data e Hora Local: ${now.toLocaleString('pt-BR')} | IP: ${ip} | Localização: ${location}`;
+                    }
+                );
+            } else {
+                document.getElementById('datetime').innerText = `Data e Hora Local: ${now.toLocaleString('pt-BR')} | IP: ${ip} | Localização: ${location}`;
+            }
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+
+        // Função para abrir calendário
+        function openCalendar() {
+            alert('Abra o calendário do seu navegador ou use o campo de data no formulário.');
+        }
+
+        // Renderizar tabela com subtarefas
+        function renderTable() {
+            const tbody = document.getElementById('taskTableBody');
+            tbody.innerHTML = '';
+            tasks.forEach(task => {
+                const row = document.createElement('tr');
+                let subtasksHtml = '<ul class="subtasks-list">';
+                task.subtasks.forEach((sub, index) => {
+                    subtasksHtml += `<li><input type="checkbox" ${sub.completed ? 'checked' : ''} onchange="updateSubtask(${task.id}, ${index}, this.checked)"> ${sub.title} ${sub.completionDate ? `(${sub.completionDate})` : ''}</li>`;
+                });
+                subtasksHtml += '</ul>';
+
+                row.innerHTML = `
+                    <td>${task.id}</td>
+                    <td>${task.projectName}</td>
+                    <td>${task.productName}</td>
+                    <td>${task.taskTitle}</td>
+                    <td>${task.description}</td>
+                    <td>${task.startDate}</td>
+                    <td>${task.dueDate}</td>
+                    <td>${task.responsible}</td>
+                    <td>${task.completion}%</td>
+                    <td>${subtasksHtml}</td>
+                    <td>
+                        <button class="btn" onclick="addToGoogleCalendar(${task.id})">Google Calendar</button>
+                        <button class="btn" onclick="addToMicrosoftCalendar(${task.id})">MS Calendar</button>
+                        <button class="btn" onclick="showSubtasks(${task.id})">Adicionar Subtarefa</button>
+                        <button class="btn" onclick="showBurndown(${task.id})">Burndown</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Atualizar status de subtarefa
+        function updateSubtask(taskId, subIndex, checked) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.subtasks[subIndex].completed = checked;
+                task.subtasks[subIndex].completionDate = checked ? (task.subtasks[subIndex].completionDate || new Date().toISOString().split('T')[0]) : null;
+                const completedCount = task.subtasks.filter(s => s.completed).length;
+                task.completion = task.subtasks.length > 0 ? Math.round((completedCount / task.subtasks.length) * 100) : 0;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                renderTable();
+                logAction(`Atualizada subtarefa ${subIndex + 1} da tarefa ${taskId} para ${checked ? 'concluída' : 'pendente'}`);
+            }
+        }
+
+        // Salvar tarefa
+        document.getElementById('taskForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const task = {
+                id: nextId++,
+                projectName: document.getElementById('projectName').value,
+                productName: document.getElementById('productName').value,
+                taskTitle: document.getElementById('taskTitle').value,
+                description: document.getElementById('description').value,
+                startDate: document.getElementById('startDate').value,
+                dueDate: document.getElementById('dueDate').value,
+                responsible: document.getElementById('responsible').value,
+                completion: document.getElementById('completion').value,
+                subtasks: []
+            };
+            tasks.push(task);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTable();
+            this.reset();
+            logAction(`Cadastrada nova tarefa ID ${task.id}`);
+        });
+
+        // Mostrar seção de subtarefas
+        function showSubtasks(taskId) {
+            document.getElementById('subtaskSection').style.display = 'block';
+            document.getElementById('taskIdForSubtask').value = taskId;
+        }
+
+        // Adicionar subtarefa
+        document.getElementById('subtaskForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskId = parseInt(document.getElementById('taskIdForSubtask').value);
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                const subtask = {
+                    title: document.getElementById('subtaskTitle').value,
+                    completed: document.getElementById('subtaskStatus').checked,
+                    completionDate: document.getElementById('subtaskStatus').checked ? (document.getElementById('subtaskCompletionDate').value || new Date().toISOString().split('T')[0]) : null
+                };
+                task.subtasks.push(subtask);
+                const completedCount = task.subtasks.filter(s => s.completed).length;
+                task.completion = task.subtasks.length > 0 ? Math.round((completedCount / task.subtasks.length) * 100) : 0;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                renderTable();
+                this.reset();
+                logAction(`Adicionada subtarefa à tarefa ${taskId}`);
+            }
+        });
+
+        // Gráfico Burndown
+        let burndownChart;
+        function showBurndown(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (!task || task.subtasks.length === 0) {
+                alert('Adicione subtarefas primeiro.');
+                return;
+            }
+
+            document.getElementById('burndownChartSection').style.display = 'block';
+
+            const start = new Date(task.startDate);
+            const end = new Date(task.dueDate);
+            const totalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+            const labels = Array.from({length: totalDays + 1}, (_, i) => {
+                const date = new Date(start);
+                date.setDate(start.getDate() + i);
+                return date.toLocaleDateString('pt-BR');
+            });
+
+            const ideal = Array.from({length: totalDays + 1}, (_, i) => task.subtasks.length - (task.subtasks.length / totalDays) * i);
+            const actual = Array(totalDays + 1).fill(task.subtasks.length);
+            task.subtasks.forEach(sub => {
+                if (sub.completed && sub.completionDate) {
+                    const completionDate = new Date(sub.completionDate);
+                    const daysSinceStart = Math.floor((completionDate - start) / (1000 * 60 * 60 * 24));
+                    if (daysSinceStart >= 0 && daysSinceStart <= totalDays) {
+                        for (let i = daysSinceStart; i <= totalDays; i++) {
+                            actual[i]--;
+                        }
+                    }
+                }
+            });
+
+            const ctx = document.getElementById('burndownChart').getContext('2d');
+            if (burndownChart) burndownChart.destroy();
+            burndownChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Ideal', data: ideal, borderColor: 'blue', fill: false },
+                        { label: 'Atual', data: actual, borderColor: 'red', fill: false }
+                    ]
+                },
+                options: { scales: { y: { beginAtZero: true, title: { display: true, text: 'Subtarefas Restantes' } } } }
+            });
+        }
+
+        // Adicionar ao Google Calendar
+        function addToGoogleCalendar(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(task.taskTitle)}&dates=${task.startDate.replace(/-/g, '')}/${task.dueDate.replace(/-/g, '')}&details=${encodeURIComponent(task.description)}&add=${encodeURIComponent(task.responsible)}`;
+                window.open(url, '_blank');
+                logAction(`Adicionada tarefa ${taskId} ao Google Calendar`);
+            }
+        }
+
+        // Adicionar ao Microsoft Calendar
+        function addToMicrosoftCalendar(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                const url = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(task.taskTitle)}&startdt=${task.startDate}T00:00:00&enddt=${task.dueDate}T23:59:59&body=${encodeURIComponent(task.description)}&to=${encodeURIComponent(task.responsible)}`;
+                window.open(url, '_blank');
+                logAction(`Adicionada tarefa ${taskId} ao Microsoft Calendar`);
+            }
+        }
+
+        // Exportar PDF
+        function exportToPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text('Tarefas Cadastradas - SuporTech', 10, 10);
+            let y = 20;
+            tasks.forEach(task => {
+                doc.text(`ID: ${task.id} - ${task.taskTitle} (${task.completion}%)`, 10, y);
+                y += 10;
+                task.subtasks.forEach((sub, i) => {
+                    doc.text(`  Subtarefa ${i + 1}: ${sub.title} (${sub.completed ? 'Concluída' : 'Pendente'}${sub.completionDate ? `, ${sub.completionDate}` : ''})`, 15, y);
+                    y += 10;
+                });
+            });
+            doc.save('tarefas.pdf');
+            logAction('Exportado para PDF');
+        }
+
+        // Exportar Excel
+        function exportToExcel() {
+            const ws = XLSX.utils.json_to_sheet(tasks.map(t => ({
+                ID: t.id,
+                Projeto: t.projectName,
+                Produto: t.productName,
+                Tarefa: t.taskTitle,
+                Descricao: t.description,
+                Inicio: t.startDate,
+                Prevista: t.dueDate,
+                Responsavel: t.responsible,
+                Conclusao: t.completion,
+                Subtarefas: t.subtasks.map(s => `${s.title} (${s.completed ? 'Concluída' : 'Pendente'}${s.completionDate ? `, ${s.completionDate}` : ''})`).join('; ')
+            })));
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Tarefas');
+            XLSX.writeFile(wb, 'tarefas.xlsx');
+            logAction('Exportado para Excel');
+        }
+
+        // Exportar JSON
+        function exportToJSON() {
+            const dataStr = JSON.stringify(tasks, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            const link = document.createElement('a');
+            link.href = dataUri;
+            link.download = 'tarefas.json';
+            link.click();
+            logAction('Exportado para JSON');
+        }
+
+        // Exportar Log
+        function exportLog() {
+            const dataStr = JSON.stringify(logs, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            const link = document.createElement('a');
+            link.href = dataUri;
+            link.download = 'log.json';
+            link.click();
+            logAction('Exportado log de eventos');
+        }
+
+        // Renderizar tabela ao carregar
+        renderTable();
+        updateEventLog();
+    </script>	
+
+</body>
+</html>
