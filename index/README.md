@@ -287,9 +287,9 @@ Edite o JSON abaixo para adicionar ou remover produtos. Após as alterações, c
 ]
 ```
 
-[Ajuda](guia.md) | [Loja SuporTech](https://www.suportech.com)
+[Ajuda](../guia.md) | [Loja SuporTech](https://www.suportech.com)
 
----
+***
 
 **SuporTech - Soluções em Tecnologia e Suporte Técnico**
 
